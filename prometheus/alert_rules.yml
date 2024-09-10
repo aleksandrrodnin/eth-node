@@ -1,0 +1,20 @@
+groups:
+  - name: instance_status
+    rules:
+      - alert: GethDown
+        expr: up{job="geth"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Geth instance is down"
+          description: "The Geth instance has been down for more than 1 minute."
+
+      - alert: LighthouseDown
+        expr: up{job="lighthouse"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Lighthouse instance is down"
+          description: "The Lighthouse instance has been down for more than 1 minute."

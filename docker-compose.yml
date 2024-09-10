@@ -7,6 +7,7 @@ services:
   geth:
     image: ethereum/client-go:v1.14.8
     ports:
+      - "6060:6060"
       - "8545:8545"
       - "30303:30303/tcp"
       - "30303:30303/udp"
@@ -35,6 +36,7 @@ services:
   lighthouse:
     image: sigp/lighthouse:v5.3.0
     ports:
+      - "5054:5054"
       - "5052:5052"
       - "9000:9000/tcp"
       - "9000:9000/udp"
@@ -64,10 +66,13 @@ services:
   prometheus:
     image: prom/prometheus:v2.43.0
     user: ":"
+    ports:
+      - "9090:9090"
     networks: [eth-node]
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./data/prometheus:/prometheus
+      - ./prometheus/alert_rules.yml:/etc/prometheus/alert_rules.yml
     restart: unless-stopped
 
   grafana:
@@ -102,6 +107,17 @@ services:
       - ./data/lighthouse/beacon/logs:/lighthouse-logs
       - ./promtail:/etc/promtail
     command: -config.file=/etc/promtail/config.yml
+    restart: unless-stopped
+
+  alertmanager:
+    image: prom/alertmanager
+    networks: [eth-node]
+    volumes:
+      - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+    ports:
+      - 9093:9093
     restart: unless-stopped
 
 networks:
