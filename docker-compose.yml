@@ -79,7 +79,7 @@ services:
     image: grafana/grafana:9.4.7
     user: ":"
     ports:
-      - "3000:3000"
+      - "80:3000"
     networks: [eth-node]
     volumes:
       - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
