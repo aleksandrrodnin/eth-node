@@ -25,7 +25,7 @@ services:
       --metrics
       --metrics.addr=0.0.0.0
       --metrics.port=6060
-    networks: [etn-node]
+    networks: [eth-node]
     volumes:
       - ./data/geth:/root/.ethereum
       - ./jwt:/root/jwt
@@ -51,7 +51,7 @@ services:
       --metrics-address=0.0.0.0
       --metrics-port=5054
       --metrics-allow-origin="*"
-    networks: [etn-node]
+    networks: [eth-node]
     volumes:
       - ./data/lighthouse:/opt/app/beacon
       - ./jwt:/opt/jwt
@@ -63,7 +63,7 @@ services:
   prometheus:
     image: prom/prometheus:v2.43.0
     user: ":"
-    networks: [etn-node]
+    networks: [eth-node]
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./data/prometheus:/prometheus
@@ -74,7 +74,7 @@ services:
     user: ":"
     ports:
       - "3000:3000"
-    networks: [etn-node]
+    networks: [eth-node]
     volumes:
       - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
       - ./grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/datasource.yml
@@ -84,4 +84,4 @@ services:
     restart: unless-stopped
 
 networks:
-  etn-node:
+  eth-node:
