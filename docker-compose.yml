@@ -25,6 +25,7 @@ services:
       --metrics
       --metrics.addr=0.0.0.0
       --metrics.port=6060
+      --log.file=/root/.ethereum/logs/geth.log
     networks: [eth-node]
     volumes:
       - ./data/geth:/root/.ethereum
@@ -81,6 +82,26 @@ services:
       - ./grafana/grafana.ini:/etc/grafana/grafana.ini:ro
       - ./grafana/dashboards:/etc/dashboards
       - ./data/grafana:/var/lib/grafana
+    restart: unless-stopped
+
+  loki:
+    image: grafana/loki:2.8.2
+    user: ":"
+    networks: [eth-node]
+    command: -config.file=/etc/loki/loki.yml
+    volumes:
+      - ./loki/loki.yml:/etc/loki/loki.yml
+      - ./data/loki:/opt/loki
+    restart: unless-stopped
+
+  promtail:
+    image: grafana/promtail:2.8.2
+    networks: [eth-node]
+    volumes:
+      - ./data/geth/logs:/geth-logs
+      - ./data/lighthouse/beacon/logs:/lighthouse-logs
+      - ./promtail:/etc/promtail
+    command: -config.file=/etc/promtail/config.yml
     restart: unless-stopped
 
 networks:
