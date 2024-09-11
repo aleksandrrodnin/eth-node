@@ -35,7 +35,7 @@ docker-compose up -d
 
 ### Localhost
 
-- [Geth and Beacon Dashboard](http://localhost/d/singlenode/swu-single-node-dashboard?orgId=1&refresh=10s)
+- [Geth and Beacon Dashboard](http://206.189.0.110/d/singlenode/single-node-dashboard?orgId=1&refresh=10s&from=now-24h&to=now)
 - [cAdvisor](http://localhost/d/AYqO8-6Sz/docker-monitoring-with-node-selection?orgId=1&refresh=10s)
 - [Node Exporter](http://localhost/d/rYdddlPWk/node-exporter-full?orgId=1&refresh=1m&from=now-5m&to=now)
 - [Geth logs](http://localhost/explore?orgId=1&left=%7B%22datasource%22:%22loki%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bjob%3D%5C%22geth%5C%22%7D%20%7C%3D%20%60%60%22,%22queryType%22:%22range%22,%22datasource%22:%7B%22type%22:%22loki%22,%22uid%22:%22loki%22%7D,%22editorMode%22:%22builder%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D)
