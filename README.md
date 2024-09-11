@@ -9,7 +9,7 @@ This project provides infrastructure for deploying an Ethereum node via `geth` a
 1. Install Docker: [Docker Installation Guide](https://docs.docker.com/engine/install/ubuntu/)
 2. Checkout the project:
 ```
-bash   git clone https://github.com/prometheus/node_exporter  
+bash   git clone https://github.com/aleksandrrodnin/eth-node  
 cd node_exporter
    ```
 3. Configure Alert Manager:
