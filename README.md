@@ -1,9 +1,10 @@
 # Eth-node
 This project provides infrastructure for deploying an Ethereum node via `geth` and `lighthouse beacon`, with integrated monitoring and alerting using Prometheus, Grafana, and Alertmanager. Monitoring is performed using Grafana dashboards to track the node's state and logs, while alerting is configured to send notifications to Telegram through Alertmanager.  
-[Demo instance dashboard](http://206.189.0.110/d/singlenode/swu-single-node-dashboard?orgId=1&refresh=10s).  
-[Demo alerts](https://t.me/+P3Xr4vee3jExMGVi)
-
+[Demo instance dashboard](http://206.189.0.110/d/singlenode/swu-single-node-dashboard?orgId=1&refresh=10s).
 ![Dashboard](./doc/dashboard.png)
+[Demo alerts](https://t.me/+P3Xr4vee3jExMGVi)
+![Alerts](./doc/alerts.png)
+
 
 ## Deployment
 
