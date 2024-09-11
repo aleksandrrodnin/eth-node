@@ -3,6 +3,7 @@ This project provides infrastructure for deploying an Ethereum node via `geth` a
 [Demo instance dashboard](http://206.189.0.110/d/singlenode/swu-single-node-dashboard?orgId=1&refresh=10s).  
 [Demo alerts](https://t.me/+P3Xr4vee3jExMGVi)
 
+![Dashboard](./doc/dashboard.png)
 
 ## Deployment
 
