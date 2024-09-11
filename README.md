@@ -4,7 +4,8 @@ This project provides infrastructure for deploying an Ethereum node via `geth` a
 ![Dashboard](./doc/dashboard.png)
 [Demo alerts](https://t.me/+P3Xr4vee3jExMGVi)
 ![Alerts](./doc/alerts.png)
-
+[Logs](http://206.189.0.110/explore?orgId=1&left=%7B%22datasource%22:%22loki%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bjob%3D%5C%22geth%5C%22%7D%20%7C%3D%20%60%60%22,%22queryType%22:%22range%22,%22datasource%22:%7B%22type%22:%22loki%22,%22uid%22:%22loki%22%7D,%22editorMode%22:%22builder%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D)
+![Logs](./doc/logs.png)
 
 ## Deployment
 
